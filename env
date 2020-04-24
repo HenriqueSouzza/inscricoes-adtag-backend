@@ -14,13 +14,13 @@
 # ENVIRONMENT
 #--------------------------------------------------------------------
 
-CI_ENVIRONMENT = development
+# CI_ENVIRONMENT = development
 
 #--------------------------------------------------------------------
 # APP
 #--------------------------------------------------------------------
 
-app.baseURL = 'http://inscricoes.unidos.br/'
+# app.baseURL = ''
 # app.forceGlobalSecureRequests = false
 
 # app.sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler'
