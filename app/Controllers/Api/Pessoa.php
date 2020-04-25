@@ -172,18 +172,22 @@ class Pessoa extends Controller
             return $this->failUnauthorized('Error Unauthorized');
 
         endif;
-        
+
         $pessoa = $this->pessoa->select('pessoa')->find($id);
 
         if(!$pessoa):
+
             return $this->failNotFound('Error Not found');
+
         endif;
 
-        if($this->pessoa->delete($id)):
-            return $this->respondDeleted('deleted success');
-        else:
+        if(!$this->pessoa->delete($id)):
+            
             return $this->failServerError();
+
         endif;
+        
+        return $this->respondDeleted('deleted success');
         
     }
 }
