@@ -6,4 +6,6 @@
 $routes->group('api', ['namespace' => 'App\Controllers\Api'], function($routes)
 {
     $routes->resource('pessoa');
+    
+    $routes->post('usuario/login', 'Usuario::authenticate');
 });

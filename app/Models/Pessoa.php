@@ -19,7 +19,8 @@ class Pessoa extends Model
         'telefone', 
         'data_nascimento', 
         'sexo', 
-        'congregacao'
+        'congregacao',
+        'senha'
     ];
 
     protected $useTimestamps = true;
@@ -30,11 +31,12 @@ class Pessoa extends Model
     protected $validationRules    = [
         'nome_compl'        => 'required|min_length[5]', 
         'cpf'               => 'required|is_natural|is_unique[pessoa.cpf]', 
-        'email'             => 'required|valid_email', 
+        'email'             => 'required|valid_email|is_unique[pessoa.email]', 
         'telefone'          => 'required|is_natural', 
         'data_nascimento'   => 'required|valid_date', 
         'sexo'              => 'required|max_length[1]|alpha', 
-        'congregacao'       => 'required|is_natural|max_length[1]'
+        'congregacao'       => 'required|is_natural|max_length[1]',
+        'senha'             => 'required|min_length[3]|max_length[8]'
     ];
     protected $validationMessages = [];
     protected $skipValidation     = false;
@@ -51,27 +53,31 @@ class Pessoa extends Model
         endif;
         
         if(isset($data['cpf'])):
-            $rules['nome_compl'] = 'required|is_natural|is_unique[pessoa.cpf]';
+            $rules['cpf'] = 'required|is_natural|is_unique[pessoa.cpf]';
         endif;
 
         if(isset($data['email'])):
-            $rules['nome_compl'] = 'required|valid_email';
+            $rules['email'] = 'required|valid_email';
         endif;
 
         if(isset($data['telefone'])):
-            $rules['nome_compl'] = 'required|is_natural';
+            $rules['telefone'] = 'required|is_natural';
         endif;
 
         if(isset($data['data_nascimento'])):
-            $rules['nome_compl'] = 'required|valid_date';
+            $rules['data_nascimento'] = 'required|valid_date';
         endif;
 
         if(isset($data['sexo'])):
-            $rules['nome_compl'] = 'required|max_length[1]|alpha';
+            $rules['sexo'] = 'required|max_length[1]|alpha';
         endif;
 
         if(isset($data['congregacao'])):
-            $rules['nome_compl'] = 'required|is_natural|max_length[1]';
+            $rules['congregacao'] = 'required|is_natural|max_length[1]';
+        endif;
+
+        if(isset($data['senha'])):
+            $rules['senha'] = 'required|min_length[3]|max_length[8]';
         endif;
 
         $this->validationRules = $rules;

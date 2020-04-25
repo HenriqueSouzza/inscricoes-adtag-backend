@@ -5,6 +5,8 @@ namespace App\Controllers\Api;
 use CodeIgniter\Controller;
 use CodeIgniter\API\ResponseTrait;
 use App\models\Pessoa as PessoaModel;
+use App\helpers\Authentication;
+use \Firebase\JWT\JWT;
 
 class Pessoa extends Controller
 {
@@ -12,17 +14,40 @@ class Pessoa extends Controller
     use ResponseTrait;
 
     protected $pessoa;
+    protected $authorization;
 
     public function __construct()
     {
         $this->pessoa = new PessoaModel;
+        $this->authorization = new Authentication;
     }
 
     public function index()
     {
-        $pessoa = $this->pessoa->paginate();
 
+        $authorization = $this->request->getHeader('Authorization'); 
+
+        //Verifica se está passando algum token
+        if(!$authorization):
+
+            return $this->failNotFound('Error Not found');
+
+        endif;
+
+        //valida o token
+        $validateToken = $this->authorization->validateToken($authorization->getValue());
+
+        //caso o token não for válido, retorna uma erro para o usuário
+        if(!$validateToken):
+
+            return $this->failUnauthorized('Error Unauthorized');
+
+        endif;
+
+        $pessoa = $this->pessoa->paginate();
+        
         return $this->respond($pessoa);
+
     }
 
     /**
@@ -30,6 +55,26 @@ class Pessoa extends Controller
      */
     public function show($id)
     {
+
+        $authorization = $this->request->getHeader('Authorization'); 
+
+        //Verifica se está passando algum token
+        if(!$authorization):
+
+            return $this->failNotFound('Error Not found');
+
+        endif;
+
+        //valida o token
+        $validateToken = $this->authorization->validateToken($authorization->getValue());
+
+        //caso o token não for válido, retorna uma erro para o usuário
+        if(!$validateToken):
+
+            return $this->failUnauthorized('Error Unauthorized');
+
+        endif;
+
         $pessoa = $this->pessoa->find($id);
 
         if(!$pessoa):
@@ -66,6 +111,25 @@ class Pessoa extends Controller
      */
     public function update($id)
     {
+        $authorization = $this->request->getHeader('Authorization'); 
+
+        //Verifica se está passando algum token
+        if(!$authorization):
+
+            return $this->failNotFound('Error Not found');
+
+        endif;
+
+        //valida o token
+        $validateToken = $this->authorization->validateToken($authorization->getValue());
+
+        //caso o token não for válido, retorna uma erro para o usuário
+        if(!$validateToken):
+
+            return $this->failUnauthorized('Error Unauthorized');
+
+        endif;
+
         $data = $this->request->getRawInput();
 
         $this->pessoa->setUpdateRules($data);
@@ -90,6 +154,25 @@ class Pessoa extends Controller
      */
     public function delete($id)
     {
+        $authorization = $this->request->getHeader('Authorization'); 
+
+        //Verifica se está passando algum token
+        if(!$authorization):
+
+            return $this->failNotFound('Error Not found');
+
+        endif;
+
+        //valida o token
+        $validateToken = $this->authorization->validateToken($authorization->getValue());
+
+        //caso o token não for válido, retorna uma erro para o usuário
+        if(!$validateToken):
+
+            return $this->failUnauthorized('Error Unauthorized');
+
+        endif;
+        
         $pessoa = $this->pessoa->select('pessoa')->find($id);
 
         if(!$pessoa):
