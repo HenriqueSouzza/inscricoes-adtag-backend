@@ -25,7 +25,7 @@ class Usuario extends Controller
     public function authenticate()
     {
 
-        $data = $this->request->getPost();
+        $data = $this->request->getJSON(true);
 
         if(!$data['cpf'] || !$data['senha']):
 

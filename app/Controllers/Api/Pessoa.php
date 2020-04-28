@@ -89,7 +89,7 @@ class Pessoa extends Controller
      */
     public function create()
     {
-        $data = $this->request->getPost(); 
+        $data = $this->request->getJSON(true); 
 
         $id = $this->pessoa->insert($data);
 
@@ -130,7 +130,7 @@ class Pessoa extends Controller
 
         endif;
 
-        $data = $this->request->getRawInput();
+        $data = $this->request->getJSON(true);
 
         $this->pessoa->setUpdateRules($data);
 
