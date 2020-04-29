@@ -6,6 +6,7 @@ use CodeIgniter\Controller;
 use CodeIgniter\API\ResponseTrait;
 use App\models\Pessoa as PessoaModel;
 use App\helpers\Authentication;
+use App\helpers\ManagerPassword;
 use \Firebase\JWT\JWT;
 
 class Pessoa extends Controller
@@ -15,16 +16,17 @@ class Pessoa extends Controller
 
     protected $pessoa;
     protected $authorization;
+    protected $senha;
 
     public function __construct()
     {
         $this->pessoa = new PessoaModel;
         $this->authorization = new Authentication;
+        $this->senha = new ManagerPassword;
     }
 
     public function index()
     {
-
         $authorization = $this->request->getHeader('Authorization'); 
 
         //Verifica se está passando algum token
@@ -91,17 +93,19 @@ class Pessoa extends Controller
     {
         $data = $this->request->getJSON(true); 
 
-        $id = $this->pessoa->insert($data);
+        $data['senha'] = $this->senha->encrypt($data['senha']);
+
+        $resultInsert = $this->pessoa->insert($data);
 
         if($this->pessoa->errors()): 
             return $this->fail($this->pessoa->errors());
         endif;
 
-        if($id === false):
+        if($resultInsert === false):
             return $this->failServerError();
         endif;
 
-        $pessoa = $this->pessoa->find($id);
+        $pessoa = $this->pessoa->find($resultInsert);
 
         return $this->respondCreated($pessoa);
     }
@@ -133,6 +137,8 @@ class Pessoa extends Controller
         $data = $this->request->getJSON(true);
 
         $this->pessoa->setUpdateRules($data);
+
+        $data['senha'] = $this->senha->encrypt($data['senha']);
 
         $updated = $this->pessoa->update($id, $data);
 
