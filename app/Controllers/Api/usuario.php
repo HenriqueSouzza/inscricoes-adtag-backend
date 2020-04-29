@@ -6,6 +6,7 @@ use CodeIgniter\Controller;
 use CodeIgniter\API\ResponseTrait;
 use App\models\Pessoa as PessoaModel;
 use App\helpers\Authentication;
+use App\helpers\ManagerPassword;
 use \Firebase\JWT\JWT;
 
 class Usuario extends Controller
@@ -15,11 +16,13 @@ class Usuario extends Controller
 
     protected $pessoa;
     protected $authorization;
+    protected $senha;
 
     public function __construct()
     {
         $this->pessoa = new PessoaModel;
         $this->authorization = new Authentication;
+        $this->senha = new ManagerPassword;
     }
 
     public function authenticate()
@@ -35,13 +38,13 @@ class Usuario extends Controller
 
         if(!$this->pessoa->where('cpf', $data['cpf'])->findAll()):
 
-            return $this->failNotFound('Error Not found');
+            return $this->failUnauthorized('Error Not found');
 
         endif;
 
         $pessoa = $this->pessoa->where('cpf', $data['cpf'])->findAll();
 
-        if(($pessoa[0]['cpf'] == $data['cpf']) && ($pessoa[0]['senha'] == $data['senha'])):
+        if(($pessoa[0]['cpf'] == $data['cpf']) && $this->senha->verify($pessoa[0]['senha'],$data['senha'])):
 
             $Token = $this->authorization->generateToken($pessoa[0]['pessoa'], $pessoa[0]['cpf']);
 

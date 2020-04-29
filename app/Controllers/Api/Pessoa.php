@@ -93,7 +93,7 @@ class Pessoa extends Controller
     {
         $data = $this->request->getJSON(true); 
 
-        $data['senha'] = $this->senha->encrypt($data['senha']);
+        $data['senha'] = $this->senha->encrypter($data['senha']);
 
         $resultInsert = $this->pessoa->insert($data);
 

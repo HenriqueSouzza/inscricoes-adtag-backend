@@ -36,7 +36,7 @@ class Pessoa extends Model
         'data_nascimento'   => 'required|valid_date', 
         'sexo'              => 'required|max_length[1]|alpha', 
         'congregacao'       => 'required|is_natural|max_length[1]',
-        'senha'             => 'required|min_length[3]|max_length[8]'
+        'senha'             => 'required|min_length[3]'
     ];
     protected $validationMessages = [];
     protected $skipValidation     = false;
