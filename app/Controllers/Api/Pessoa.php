@@ -17,12 +17,14 @@ class Pessoa extends Controller
     protected $pessoa;
     protected $authorization;
     protected $senha;
+    protected $email;
 
     public function __construct()
     {
         $this->pessoa = new PessoaModel;
         $this->authorization = new Authentication;
         $this->senha = new ManagerPassword;
+        $this->email = \Config\Services::email();
     }
 
     public function index()
@@ -196,4 +198,54 @@ class Pessoa extends Controller
         return $this->respondDeleted('deleted success');
         
     }
+
+    public function resetPassword()
+    {
+        $data = $this->request->getJSON(true); 
+
+        $pessoa = $this->pessoa->where(['cpf'=> $data['cpf'], 'data_nascimento' => $data['data_nascimento']])->findAll();
+        
+        if(!$pessoa):
+
+            return $this->failUnauthorized('Error Unauthorized');
+
+        endif;
+
+        $cpf_temp = substr($data['cpf'], -8, 4);
+        $date_temp = date('d');
+        $password = strrev('!'. $cpf_temp . '@' . $date_temp);
+
+        unset($data['cpf']);
+
+        $this->email->setFrom('henriquehps1997@gmail.com', 'Emanuel Falcao');
+        $this->email->setTo('emanoelfalcao62@gmail.com');
+
+        $this->email->setSubject('Recuperação de senha portal UNIDOS');
+        $this->email->setMessage('Boa tarde ! receba sua nova senha:'. $password);
+        // $this->email->setHeader('From', 'henriquetsi10@gmail.com');
+        $this->email->setHeader('Return-path', 'henriquehps1997@gmail.com');
+
+        // $header = "From: emanoelfalcao62@gmail.com\r\nReturn-path: henriquetsi10@gmail.com";
+
+        var_dump($this->email->send());die();
+        // var_dump(mail('henriquetsi10@gmail.com','teste','teste', $header));die();
+
+        // $data['senha'] = $this->senha->encrypter($password);
+
+        // $updated = $this->pessoa->update($pessoa[0]['id'], $data);
+
+        // if($this->pessoa->errors()){
+        //     return $this->fail($this->pessoa->errors());
+        // }
+
+        // if($updated === false){
+        //     return $this->failServerError();
+        // }
+
+        // $pessoa = $this->pessoa->find($id);
+
+        // return $this->respond($pessoa);
+
+    }
+
 }

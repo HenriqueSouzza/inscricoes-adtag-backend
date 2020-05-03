@@ -48,7 +48,7 @@ class Usuario extends Controller
 
             $Token = $this->authorization->generateToken($pessoa[0]['pessoa'], $pessoa[0]['cpf']);
 
-            return $this->respond(['token' => $Token]);
+            return $this->respond(['token' => $Token, 'pessoa' => $pessoa[0]['pessoa']]);
 
         else:
 
