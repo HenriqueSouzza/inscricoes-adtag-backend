@@ -122,10 +122,6 @@ class Pessoa extends Controller
 
         $this->email->send();
 
-        // $header = "From: henriquetsi10@hotmail.com";
-
-        // var_dump(mail('emanoelfalcao62@gmail.com','teste','teste', $header));die();
-
         $pessoa = $this->pessoa->find($resultInsert);
 
         return $this->respondCreated($pessoa);
@@ -222,7 +218,7 @@ class Pessoa extends Controller
     {
         $data = $this->request->getJSON(true); 
 
-        $pessoa = $this->pessoa->where(['cpf'=> $data['cpf'], 'data_nascimento' => $data['data_nascimento']])->findAll();
+        $pessoa = $this->pessoa->where(['cpf'=> trim($data['cpf']), 'data_nascimento' => $data['data_nascimento']])->findAll();
         
         if(!$pessoa):
 
@@ -236,20 +232,22 @@ class Pessoa extends Controller
 
         unset($data['cpf']);
         
+        $this->pessoa->setUpdateRules($data);
+
         $data['senha'] = $this->senha->encrypter($password);
-
-        $updated = $this->pessoa->update($pessoa[0]['pessoa'], $data);
-
+        
         if($this->pessoa->errors()){
             return $this->fail($this->pessoa->errors());
         }
+        
+        $updated = $this->pessoa->update($pessoa[0]['pessoa'], $data);
 
-        if(!$updated){
+        if($updated === false){
             return $this->failServerError();
         }
 
-        // $this->email->setFrom('henriquehps1997@hotmail.com', 'Henrique Souza');
-        $this->email->setTo('emanoelfalcao62@gmail.com');
+        $this->email->setFrom('henriquehps1997@hotmail.com', 'Henrique Souza');
+        $this->email->setTo($data['email']);
 
         $this->email->setSubject('Recuperação de senha portal UNIDOS');
         $this->email->setMessage('Olá ! <br> 
