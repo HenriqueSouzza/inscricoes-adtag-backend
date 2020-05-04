@@ -38,7 +38,7 @@ class Usuario extends Controller
 
         if(!$this->pessoa->where('cpf', $data['cpf'])->findAll()):
 
-            return $this->failUnauthorized('Error Not found');
+            return $this->failNotFound('Error Not found');
 
         endif;
 

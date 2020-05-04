@@ -33,21 +33,21 @@ class Email extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $protocol = 'smtp';
+	public $protocol = 'mail';
 
 	/**
 	 * The server path to Sendmail.
 	 *
 	 * @var string
 	 */
-	public $mailPath = '/usr/sbin/sendmail';
+	public $mailPath = 'C:\Apache24\sendmail\sendmail.exe';
 
 	/**
 	 * SMTP Server Address
 	 *
 	 * @var string
 	 */
-	public $SMTPHost = 'smtp.gmail.com';
+	public $SMTPHost = 'smtp-mail.outlook.com';
 
 	/**
 	 * SMTP Username
@@ -89,7 +89,7 @@ class Email extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $SMTPCrypto = 'ssl';
+	public $SMTPCrypto = 'tls';
 
 	/**
 	 * Enable word-wrap

@@ -95,6 +95,8 @@ class Pessoa extends Controller
     {
         $data = $this->request->getJSON(true); 
 
+        $senhaWithHash = $data['senha'];
+
         $data['senha'] = $this->senha->encrypter($data['senha']);
 
         $resultInsert = $this->pessoa->insert($data);
@@ -103,9 +105,26 @@ class Pessoa extends Controller
             return $this->fail($this->pessoa->errors());
         endif;
 
-        if($resultInsert === false):
+        if(!$resultInsert):
             return $this->failServerError();
         endif;
+
+        $this->email->setFrom('henriquehps1997@hotmail.com', 'Henrique Souza');
+        $this->email->setTo($data['email']);
+
+        $this->email->setSubject('Bem vindo ao nosso portal UNIDOS');
+        $this->email->setMessage('Olá ! <br> 
+                                    Seja bem ao nosso portal, agora você pode acessá-lo com seu usuário e senha: 
+                                    <br> Usuario: <strong> '. $data['cpf'] . '</strong>
+                                    <br> Senha: <strong> '. $senhaWithHash . '</strong>
+                                ');
+        $this->email->setHeader('From', 'henriquetsi10@hotmail.com');
+
+        $this->email->send();
+
+        // $header = "From: henriquetsi10@hotmail.com";
+
+        // var_dump(mail('emanoelfalcao62@gmail.com','teste','teste', $header));die();
 
         $pessoa = $this->pessoa->find($resultInsert);
 
@@ -216,36 +235,39 @@ class Pessoa extends Controller
         $password = strrev('!'. $cpf_temp . '@' . $date_temp);
 
         unset($data['cpf']);
+        
+        $data['senha'] = $this->senha->encrypter($password);
 
-        $this->email->setFrom('henriquehps1997@gmail.com', 'Emanuel Falcao');
+        $updated = $this->pessoa->update($pessoa[0]['pessoa'], $data);
+
+        if($this->pessoa->errors()){
+            return $this->fail($this->pessoa->errors());
+        }
+
+        if(!$updated){
+            return $this->failServerError();
+        }
+
+        // $this->email->setFrom('henriquehps1997@hotmail.com', 'Henrique Souza');
         $this->email->setTo('emanoelfalcao62@gmail.com');
 
         $this->email->setSubject('Recuperação de senha portal UNIDOS');
-        $this->email->setMessage('Boa tarde ! receba sua nova senha:'. $password);
-        // $this->email->setHeader('From', 'henriquetsi10@gmail.com');
-        $this->email->setHeader('Return-path', 'henriquehps1997@gmail.com');
+        $this->email->setMessage('Olá ! <br> 
+                                    Recebemos sua solicitação agora sua nova senha é: <br> 
+                                    <h2>'. $password . '</h2>
+                                ');
+        $this->email->setHeader('From', 'henriquetsi10@hotmail.com');
 
-        // $header = "From: emanoelfalcao62@gmail.com\r\nReturn-path: henriquetsi10@gmail.com";
+        // $header = "From: henriquetsi10@hotmail.com";
+        // var_dump(mail('emanoelfalcao62@gmail.com','teste','teste', $header));die();
 
-        var_dump($this->email->send());die();
-        // var_dump(mail('henriquetsi10@gmail.com','teste','teste', $header));die();
+        if(!$this->email->send()){
 
-        // $data['senha'] = $this->senha->encrypter($password);
-
-        // $updated = $this->pessoa->update($pessoa[0]['id'], $data);
-
-        // if($this->pessoa->errors()){
-        //     return $this->fail($this->pessoa->errors());
-        // }
-
-        // if($updated === false){
-        //     return $this->failServerError();
-        // }
-
-        // $pessoa = $this->pessoa->find($id);
-
-        // return $this->respond($pessoa);
-
+            return $this->failServerError();
+            
+        };
+        
+        return $this->respond($pessoa);
     }
 
 }
