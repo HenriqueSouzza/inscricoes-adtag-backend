@@ -10,7 +10,7 @@ class Pessoa extends Model
     protected $primaryKey = 'pessoa';
 
     protected $returnType = 'array';
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
 
     protected $allowedFields = [
         'nome_compl', 
@@ -23,7 +23,7 @@ class Pessoa extends Model
         'senha'
     ];
 
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';

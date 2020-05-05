@@ -218,7 +218,7 @@ class Pessoa extends Controller
     {
         $data = $this->request->getJSON(true); 
 
-        $pessoa = $this->pessoa->where(['cpf'=> trim($data['cpf']), 'data_nascimento' => $data['data_nascimento']])->findAll();
+        $pessoa = $this->pessoa->where(['cpf'=> $data['cpf'], 'data_nascimento' => $data['data_nascimento']])->findAll();
         
         if(!$pessoa):
 
@@ -231,7 +231,7 @@ class Pessoa extends Controller
         $password = strrev('!'. $cpf_temp . '@' . $date_temp);
 
         unset($data['cpf']);
-        
+
         $this->pessoa->setUpdateRules($data);
 
         $data['senha'] = $this->senha->encrypter($password);
