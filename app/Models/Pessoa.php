@@ -35,7 +35,7 @@ class Pessoa extends Model
         'telefone'          => 'required|is_natural', 
         'data_nascimento'   => 'required|valid_date', 
         'sexo'              => 'required|max_length[1]|alpha', 
-        'congregacao'       => 'required|is_natural|max_length[1]',
+        'congregacao'       => 'required|is_natural',
         'senha'             => 'required|min_length[3]'
     ];
     protected $validationMessages = [];
@@ -73,7 +73,7 @@ class Pessoa extends Model
         endif;
 
         if(isset($data['congregacao'])):
-            $rules['congregacao'] = 'required|is_natural|max_length[1]';
+            $rules['congregacao'] = 'required|is_natural';
         endif;
 
         if(isset($data['senha'])):

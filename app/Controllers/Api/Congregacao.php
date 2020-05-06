@@ -43,7 +43,7 @@ class Congregacao extends Controller
 
         // endif;
 
-        $congregacao = $this->congregacao->paginate();
+        $congregacao = $this->congregacao->findAll();
         
         return $this->respond($congregacao);
 
