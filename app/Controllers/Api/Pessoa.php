@@ -155,7 +155,7 @@ class Pessoa extends Controller
 
         $this->pessoa->setUpdateRules($data);
 
-        $data['senha'] = $this->senha->encrypt($data['senha']);
+        $data['senha'] = $this->senha->encrypter($data['senha']);
 
         $updated = $this->pessoa->update($id, $data);
 

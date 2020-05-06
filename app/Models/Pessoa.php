@@ -77,7 +77,7 @@ class Pessoa extends Model
         endif;
 
         if(isset($data['senha'])):
-            $rules['senha'] = 'required|min_length[3]|max_length[8]';
+            $rules['senha'] = 'required|min_length[3]';
         endif;
 
         $this->validationRules = $rules;
