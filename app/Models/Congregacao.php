@@ -24,7 +24,7 @@ class Congregacao extends Model
 
     protected $validationRules    = [
         'regiao'            => 'required|is_natural', 
-        'nome_congregacao'  => 'required|min_length[5]', 
+        'nome_congregacao'  => 'required|min_length[2]', 
     ];
 
     protected $validationMessages = [];
