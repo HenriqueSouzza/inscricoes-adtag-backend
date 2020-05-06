@@ -46,9 +46,14 @@ class Usuario extends Controller
 
         if(($pessoa[0]['cpf'] == $data['cpf']) && $this->senha->verify($pessoa[0]['senha'],$data['senha'])):
 
-            $Token = $this->authorization->generateToken($pessoa[0]['pessoa'], $pessoa[0]['cpf']);
+            $token = $this->authorization->generateToken($pessoa[0]['pessoa'], $pessoa[0]['cpf']);
 
-            return $this->respond(['token' => $Token, 'pessoa' => $pessoa[0]['pessoa']]);
+            $pessoa = [
+                'pessoa' => $pessoa[0]['pessoa'],
+                'nome_compl' =>  $pessoa[0]['nome_compl']
+            ];
+
+            return $this->respond(['token' => $token, 'pessoa' => $pessoa]);
 
         else:
 
