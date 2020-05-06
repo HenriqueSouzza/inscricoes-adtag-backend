@@ -4,7 +4,7 @@ namespace App\Controllers\Api;
 
 use CodeIgniter\Controller;
 use CodeIgniter\API\ResponseTrait;
-use App\models\Congregacao as PessoaModel;
+use App\models\Congregacao as CongregacaoModel;
 use App\helpers\Authentication;
 use \Firebase\JWT\JWT;
 
@@ -18,8 +18,32 @@ class Congregacao extends Controller
 
     public function __construct()
     {
-        $this->congregacao = new PessoaModel;
+        $this->congregacao = new CongregacaoModel;
         $this->authorization = new Authentication;
     }
 
+    public function index()
+    {
+
+    }
+
+    public function show($id)
+    {
+
+    }
+
+    public function create()
+    {
+
+    }
+
+    public function update($id)
+    {
+
+    }
+
+    public function delete($id)
+    {
+
+    }
 }
