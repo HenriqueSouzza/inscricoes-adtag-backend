@@ -6,54 +6,78 @@ use CodeIgniter\Controller;
 use CodeIgniter\API\ResponseTrait;
 use App\models\Evento as EventoModel;
 use App\helpers\Authentication;
-use App\helpers\ManagerPassword;
-use \Firebase\JWT\JWT;
 
 class Evento extends Controller
 {
-    protected $DBGroup = "default"; 
+    use ResponseTrait;
 
-    protected $table      = 'evento';
-    protected $primaryKey = 'evento';
+    protected $evento;
+    protected $authorization;
 
-    protected $returnType = 'array';
-    protected $useSoftDeletes = true;
+    public function __construct()
+    {
+        $this->evento = new EventoModel;
+        $this->authorization = new Authentication;
+    }
 
-    protected $allowedFields = [
-        'nome_evento', 
-        'data', 
-        'vagas', 
-        'hora', 
-        'valor', 
-        'status', 
-        'cep',
-        'estado',
-        'cidade',
-        'endereco',
-        'numero',
-        'complemento',
-    ];
+    public function index()
+    {
+        
+        $authorization = $this->request->getHeader('Authorization'); 
 
-    protected $useTimestamps = false;
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+        //Verifica se está passando algum token
+        if(!$authorization):
 
-    protected $validationRules    = [
-        'nome_evento'       => 'required|min_length[5]', 
-        'data'              => 'required|valid_date', 
-        'hora'              => '',//'required|is_natural', 
-        'vagas'             => 'required|is_natural', 
-        'valor'             => 'decimal',//'required|is_natural', 
-        'status'            => 'required|max_length[1]|is_natural', 
-        'cep'               => '',//'required|is_natural', 
-        'endereco'          => '',//'required|min_length[5]', 
-        'estado'            => '',//'required|min_length[5]', 
-        'cidade'            => '',//'required|min_length[5]', 
-        'numero'            => '',//'required|is_natural|min_length[5]', 
-        'complemento'       => '',//'required|is_natural|min_length[5]', 
-    ];
+            return $this->failNotFound('Error Not found');
 
-    protected $validationMessages = [];
-    protected $skipValidation     = false;
+        endif;
+
+        //valida o token
+        $validateToken = $this->authorization->validateToken($authorization->getValue());
+
+        //caso o token não for válido, retorna uma erro para o usuário
+        if(!$validateToken):
+
+            return $this->failUnauthorized('Error Unauthorized');
+
+        endif;
+
+        $evento = $this->evento->findAll();
+        
+        return $this->respond($evento);
+    }
+
+    /**
+     * 
+     */
+    public function show($id)
+    {
+        $authorization = $this->request->getHeader('Authorization'); 
+
+        //Verifica se está passando algum token
+        if(!$authorization):
+
+            return $this->failNotFound('Error Not found');
+
+        endif;
+
+        //valida o token
+        $validateToken = $this->authorization->validateToken($authorization->getValue());
+
+        //caso o token não for válido, retorna uma erro para o usuário
+        if(!$validateToken):
+
+            return $this->failUnauthorized('Error Unauthorized');
+
+        endif;
+
+        $evento = $this->evento->find($id);
+
+        if(!$evento):
+            return $this->failNotFound('Error Not found');
+        endif;
+
+        return $this->respond($evento);
+    }
+
 }

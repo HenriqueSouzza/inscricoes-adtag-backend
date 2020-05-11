@@ -55,7 +55,7 @@ class Congregacao extends Controller
 
         $congregacao = $this->congregacao->find($id);
 
-        if(!$pessoa):
+        if(!$congregacao):
             return $this->failNotFound('Error Not found');
         endif;
 

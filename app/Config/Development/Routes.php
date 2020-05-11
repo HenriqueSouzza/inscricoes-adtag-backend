@@ -8,6 +8,8 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function($routes)
     $routes->resource('pessoa');
 
     $routes->resource('congregacao');
+    
+    $routes->resource('evento');
 
     $routes->post('pessoa/resetar-senha', 'Pessoa::resetPassword');
     
