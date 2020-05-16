@@ -7,7 +7,6 @@ use CodeIgniter\API\ResponseTrait;
 // use App\models\Congregacao as CongregacaoModel;
 use App\helpers\Authentication;
 use App\helpers\PagSeguro;
-use \PagSeguro\Domains\Requests\DirectPayment\Boleto;
 
 class Inscricao extends Controller
 {
@@ -18,49 +17,14 @@ class Inscricao extends Controller
 
     protected $authorization;
 
-    protected $pagSeguro;
+    protected $pagSeguroConfig;
 
     public function __construct()
     {
         // $this->congregacao = new CongregacaoModel;
         $this->authorization = new Authentication;
 
-        $pagSeguroConfig = new PagSeguro('production');
-
-        $pagSeguroConfig->openSession();
-
-        // $boleto = new Boleto;
-
-        // $boleto->setSender()->setName('João Comprador');
-        // $boleto->setSender()->setEmail('email@comprador.com.br');
-
-        // $boleto->setSender()->setPhone()->withParameters(
-        //     11,
-        //     56273440
-        // );
-
-        // $boleto->setSender()->setDocument()->withParameters(
-        //     'CPF',
-        //     'insira um numero de CPF valido'
-        // );
-
-        // $boleto->setSender()->setHash('3dc25e8a7cb3fd3104e77ae5ad0e7df04621caa33e300b27aeeb9ea1adf1a24f');
-
-        // $boleto->setSender()->setIp('127.0.0.0');
-
-        // // Set shipping information for this payment request
-        // $boleto->setShipping()->setAddress()->withParameters(
-        //     'Av. Brig. Faria Lima',
-        //     '1384',
-        //     'Jardim Paulistano',
-        //     '01452002',
-        //     'São Paulo',
-        //     'SP',
-        //     'BRA',
-        //     'apto. 114'
-        // );
-
-        // var_dump($configure->getAccountCredentials());die();
+        $this->pagSeguroConfig = new PagSeguro('production');
     }   
 
     public function index()
@@ -109,9 +73,28 @@ class Inscricao extends Controller
      */
     public function create()
     {
+        // $authorization = $this->request->getHeader('Authorization'); 
+
+        // //Verifica se está passando algum token
+        // if(!$authorization):
+
+        //     return $this->failNotFound('Error Not found');
+
+        // endif;
+
         $data = $this->request->getJSON(true); 
 
-        var_dump($this->pagseguro);die();
+        //inicia uma sessão no pagseguro
+        $sessionPagSeguro = $this->pagSeguroConfig->openSession();
+
+        // $generateBoleto = $this->pagSeguroConfig->generateBoleto();
+
+        // var_dump($generateBoleto->getCode(),$generateBoleto->getPaymentLink(), $generateBoleto);die();
+        
+        
+        die();
+        
+        // var_dump($response, $generateBoleto->getCode(),$generateBoleto->getPaymentLink(), $generateBoleto);die();
     }
 
     /**

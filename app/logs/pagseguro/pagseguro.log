@@ -1,13 +1,20 @@
 
-16/05/2020 15:51:36 PagSeguro.Session[info]: Begin
-16/05/2020 15:51:36 PagSeguro.Session[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/sessions?email=your_pagseguro_email&token=your_sandbox_token
-16/05/2020 15:51:38 PagSeguro.Session[error]: Unauthorized
-16/05/2020 15:52:08 PagSeguro.Session[info]: Begin
-16/05/2020 15:52:08 PagSeguro.Session[info]: POST: https://ws.sandbox.pagseguro.uol.com.br/v2/sessions?email=your_pagseguro_email&token=your_sandbox_token
-16/05/2020 15:52:09 PagSeguro.Session[error]: Unauthorized
-16/05/2020 15:54:14 PagSeguro.Session[info]: Begin
-16/05/2020 15:54:14 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=your_pagseguro_email&token=your_production_token
-16/05/2020 15:54:15 PagSeguro.Session[error]: Unauthorized
-16/05/2020 16:09:45 PagSeguro.Session[info]: Begin
-16/05/2020 16:09:45 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=your_pagseguro_email&token=your_production_token
-16/05/2020 16:09:45 PagSeguro.Session[error]: Unauthorized
+16/05/2020 18:10:51 PagSeguro.Session[info]: Begin
+16/05/2020 18:10:51 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+16/05/2020 18:10:51 PagSeguro.Session[info]: Session ID: 4f67d023e06a4b9ea265fab53dffd565
+16/05/2020 18:10:51 PagSeguro.Transactions.Notification[info]: Begin
+16/05/2020 18:10:51 PagSeguro.Transactions.Notification[error]: Invalid notification parameters.
+16/05/2020 18:11:07 PagSeguro.Session[info]: Begin
+16/05/2020 18:11:07 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+16/05/2020 18:11:08 PagSeguro.Session[info]: Session ID: acf965ef03064dd0a761cbb3d9a3ad99
+16/05/2020 18:11:29 PagSeguro.Session[info]: Begin
+16/05/2020 18:11:29 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+16/05/2020 18:11:29 PagSeguro.Session[info]: Session ID: a777cf82f6b4489a8601105ffb6fbfc0
+16/05/2020 18:11:29 PagSeguro.Transactions.Notification[info]: Begin
+16/05/2020 18:11:29 PagSeguro.Transactions.Notification[error]: Invalid notification parameters.
+16/05/2020 18:11:59 PagSeguro.Session[info]: Begin
+16/05/2020 18:11:59 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+16/05/2020 18:11:59 PagSeguro.Session[info]: Session ID: 7e5b5e8fb2b0411eb90cc250fab0955d
+16/05/2020 18:17:02 PagSeguro.Session[info]: Begin
+16/05/2020 18:17:02 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+16/05/2020 18:17:03 PagSeguro.Session[info]: Session ID: 0783936c88e94898894124b03657e6b0
