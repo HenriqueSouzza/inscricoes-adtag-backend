@@ -11,6 +11,8 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function($routes)
     
     $routes->resource('evento');
 
+    $routes->resource('inscricao');
+
     $routes->post('pessoa/resetar-senha', 'Pessoa::resetPassword');
     
     $routes->post('usuario/login', 'Usuario::authenticate');

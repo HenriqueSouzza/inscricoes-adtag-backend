@@ -8,7 +8,8 @@
 		"php": ">=7.2",
 		"codeigniter4/framework": "^4",
 		"firebase/php-jwt": "^5.2",
-		"phpmailer/phpmailer": "^6.1"
+		"phpmailer/phpmailer": "^6.1",
+		"pagseguro/pagseguro-php-sdk" : "^6.0"
 	},
 	"require-dev": {
 		"mikey179/vfsstream": "1.6.*",
