@@ -87,14 +87,19 @@ class Inscricao extends Controller
         //inicia uma sessão no pagseguro
         $sessionPagSeguro = $this->pagSeguroConfig->openSession();
 
+        //Gerar boleto
         // $generateBoleto = $this->pagSeguroConfig->generateBoleto();
-
+        
+        //pagamento via cartão de crédito
+        $paymentCreditCard = $this->pagSeguroConfig->paymentCreditCard();
+        
+        var_dump($paymentCreditCard);die();
+        die();
         // var_dump($generateBoleto->getCode(),$generateBoleto->getPaymentLink(), $generateBoleto);die();
         
-        
-        die();
-        
         // var_dump($response, $generateBoleto->getCode(),$generateBoleto->getPaymentLink(), $generateBoleto);die();
+        
+        
     }
 
     /**
