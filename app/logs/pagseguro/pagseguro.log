@@ -154,3 +154,93 @@
 16/05/2020 19:15:32 PagSeguro.DirectPayment.CreditCard[info]: POST: https://ws.pagseguro.uol.com.br/v2/transactions/?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
 16/05/2020 19:15:32 PagSeguro.Checkout[info]: Params: {"billingAddressStreet":"Av. Brig. Faria Lima","billingAddressNumber":"1384","billingAddressComplement":"apto. 114","billingAddressCity":"S\u00e3o Paulo","billingAddressState":"SP","billingAddressDistrict":"Jardim Paulistano","billingAddressPostalCode":"01452002","billingAddressCountry":"BRA","currency":"BRL","creditCardHolderName":"Jo\u00e3o Comprador","creditCardHolderBirthDate":"01\/10\/1979","creditCardHolderAreaCode":61,"creditCardHolderPhone":936524189,"creditCardHolderCPF":"58885319017","installmentQuantity":1,"installmentValue":70,"itemId1":"0001","itemDescription1":"Notebook prata","itemQuantity1":1,"itemAmount1":"140.00","paymentMethod":"creditCard","paymentMode":"DEFAULT","receiverEmail":"henriquetsi10@gmail.com","senderName":"Jo\u00e3o Comprador","senderEmail":"email@comprador.com.br","senderAreaCode":61,"senderPhone":"(**) 98356-****","senderCPF":"588.***.***-**","senderIp":"127.0.0.0","senderHash":"60ed3ce797f9681d8d412b49997633015b6231f52093e05cdff06b386df4afbe","shippingAddressStreet":"Av. Brig. Faria Lima","shippingAddressNumber":"1384","shippingAddressComplement":"apto. 114","shippingAddressCity":"S\u00e3o Paulo","shippingAddressState":"SP","shippingAddressDistrict":"Jardim Paulistano","shippingAddressPostalCode":"01452002","shippingAddressCountry":"BRA","creditCardToken":"da3fce84f22e410b82726c70684e254d"}
 16/05/2020 19:15:32 PagSeguro.DirectPayment.CreditCard[error]: <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?><errors><error><code>53041</code><message>installment value invalid value: 70</message></error></errors>
+18/05/2020 09:27:56 PagSeguro.Installment[info]: Begin
+18/05/2020 09:27:56 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+18/05/2020 09:27:57 PagSeguro.Session[info]: Begin
+18/05/2020 09:27:57 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 09:27:57 PagSeguro.Session[info]: Session ID: 8cf3401a48a24d5b805dfd279c03299b
+18/05/2020 09:27:57 PagSeguro.DirectPayment.Boleto[info]: Begin
+18/05/2020 09:27:57 PagSeguro.DirectPayment.Boleto[info]: POST: https://ws.pagseguro.uol.com.br/v2/transactions/?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 09:27:57 PagSeguro.Checkout[info]: Params: {"currency":"BRL","extraAmount":"11.50","itemId1":"0001","itemDescription1":"Inscri\u00e7\u00e3o Acamp unidos","itemQuantity1":1,"itemAmount1":"140.00","paymentMethod":"boleto","paymentMode":"DEFAULT","senderName":"Jo\u00e3o Comprador","senderEmail":"henriquehps1997@gmail.com","senderAreaCode":61,"senderPhone":"(**) 98530-****","senderCPF":"588.***.***-**","senderHash":"60ed3ce797f9681d8d412b49997633015b6231f52093e05cdff06b386df4afbe","shippingAddressStreet":"Av. Brig. Faria Lima","shippingAddressNumber":"1384","shippingAddressComplement":"apto. 114","shippingAddressCity":"S\u00e3o Paulo","shippingAddressState":"SP","shippingAddressDistrict":"Jardim Paulistano","shippingAddressPostalCode":"01452002","shippingAddressCountry":"BRA"}
+18/05/2020 09:28:00 PagSeguro.DirectPayment.Boleto[info]: Boleto Payment Link URL: https://pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=36f08f1971fd146340cfcee3cddc02d0a3a545f777245a2e05d9ea82da7f709c5c8e524266402181
+18/05/2020 09:28:14 PagSeguro.Installment[info]: Begin
+18/05/2020 09:28:14 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+18/05/2020 09:28:15 PagSeguro.Session[info]: Begin
+18/05/2020 09:28:15 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 09:28:15 PagSeguro.Session[info]: Session ID: 58210c4cace04316ad4e2dacfee39053
+18/05/2020 09:28:15 PagSeguro.DirectPayment.Boleto[info]: Begin
+18/05/2020 09:28:15 PagSeguro.DirectPayment.Boleto[info]: POST: https://ws.pagseguro.uol.com.br/v2/transactions/?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 09:28:15 PagSeguro.Checkout[info]: Params: {"currency":"BRL","extraAmount":"11.50","itemId1":"0001","itemDescription1":"Inscri\u00e7\u00e3o Acamp unidos","itemQuantity1":1,"itemAmount1":"140.00","paymentMethod":"boleto","paymentMode":"DEFAULT","senderName":"Jo\u00e3o Comprador","senderEmail":"henriquehps1997@gmail.com","senderAreaCode":61,"senderPhone":"(**) 98530-****","senderCPF":"588.***.***-**","senderHash":"60ed3ce797f9681d8d412b49997633015b6231f52093e05cdff06b386df4afbe","shippingAddressStreet":"Av. Brig. Faria Lima","shippingAddressNumber":"1384","shippingAddressComplement":"apto. 114","shippingAddressCity":"S\u00e3o Paulo","shippingAddressState":"SP","shippingAddressDistrict":"Jardim Paulistano","shippingAddressPostalCode":"01452002","shippingAddressCountry":"BRA"}
+18/05/2020 09:28:18 PagSeguro.DirectPayment.Boleto[info]: Boleto Payment Link URL: https://pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=67140528140d06af8319c6217af8d928adbb14e7471531a8c8802b95d42f91cafa37a84e0dd5cf9d
+18/05/2020 09:45:49 PagSeguro.Installment[info]: Begin
+18/05/2020 09:45:49 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+18/05/2020 09:45:50 PagSeguro.Session[info]: Begin
+18/05/2020 09:45:50 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 09:45:50 PagSeguro.Session[info]: Session ID: fe05b8ff2ff3422e924902504108f9a4
+18/05/2020 09:45:50 PagSeguro.Transactions.Notification[info]: Begin
+18/05/2020 09:45:50 PagSeguro.Transactions.Notification[error]: Invalid notification parameters.
+18/05/2020 09:46:02 PagSeguro.Installment[info]: Begin
+18/05/2020 09:46:02 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+18/05/2020 09:46:02 PagSeguro.Session[info]: Begin
+18/05/2020 09:46:02 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 09:46:02 PagSeguro.Session[info]: Session ID: 772d4aa21c874bc2b8c8c3ce3998651a
+18/05/2020 09:46:02 PagSeguro.Transactions.Notification[info]: Begin
+18/05/2020 09:46:02 PagSeguro.Transactions.Notification[error]: Invalid notification parameters.
+18/05/2020 09:46:06 PagSeguro.Installment[info]: Begin
+18/05/2020 09:46:06 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+18/05/2020 09:46:06 PagSeguro.Session[info]: Begin
+18/05/2020 09:46:06 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 09:46:07 PagSeguro.Session[info]: Session ID: a23b1b0f2a7443ec8de3fc3fcf059e48
+18/05/2020 09:46:07 PagSeguro.Transactions.Notification[info]: Begin
+18/05/2020 09:46:07 PagSeguro.Transactions.Notification[error]: Invalid notification parameters.
+18/05/2020 09:47:40 PagSeguro.Installment[info]: Begin
+18/05/2020 09:47:40 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+18/05/2020 09:47:40 PagSeguro.Session[info]: Begin
+18/05/2020 09:47:40 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 09:47:40 PagSeguro.Session[info]: Session ID: 779b97010b614166b8fa2dd574b5aafc
+18/05/2020 09:47:40 PagSeguro.Transactions.Search.Code[info]: Begin
+18/05/2020 09:47:40 PagSeguro.Transactions.Search.Code[info]: GET: https://ws.pagseguro.uol.com.br/v3/transactions/144C1E68-E294-453E-A475-A3E0D847A77D/?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 09:47:41 PagSeguro.Transactions.Search.Code[info]: Date: 2020-05-18T11:28:13.000-03:00, Code: 144C1E68-E294-453E-A475-A3E0D847A77D
+18/05/2020 10:03:44 PagSeguro.Installment[info]: Begin
+18/05/2020 10:03:44 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+18/05/2020 10:03:45 PagSeguro.Session[info]: Begin
+18/05/2020 10:03:45 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 10:03:45 PagSeguro.Session[info]: Session ID: 2b9b708266f1417594307a2b90148e88
+18/05/2020 10:04:15 PagSeguro.Installment[info]: Begin
+18/05/2020 10:04:15 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+18/05/2020 10:04:16 PagSeguro.Session[info]: Begin
+18/05/2020 10:04:16 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 10:04:22 PagSeguro.Session[info]: Session ID: 9dff8d42bf9b4c42beb37452d066cae5
+18/05/2020 10:05:06 PagSeguro.Installment[info]: Begin
+18/05/2020 10:05:06 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+18/05/2020 10:05:07 PagSeguro.Session[info]: Begin
+18/05/2020 10:05:07 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 10:05:07 PagSeguro.Session[info]: Session ID: 71c1430bbee64c2794dbf0472c7bb86a
+18/05/2020 10:07:07 PagSeguro.Installment[info]: Begin
+18/05/2020 10:07:07 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+18/05/2020 10:07:08 PagSeguro.Session[info]: Begin
+18/05/2020 10:07:08 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 10:07:08 PagSeguro.Session[info]: Session ID: 587bc8c5d4124cc7b51c37df7fd259c0
+18/05/2020 10:23:29 PagSeguro.Installment[info]: Begin
+18/05/2020 10:23:29 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+18/05/2020 10:23:29 PagSeguro.Session[info]: Begin
+18/05/2020 10:23:29 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 10:23:30 PagSeguro.Session[info]: Session ID: 9f6da5171ca748b08f1b26ff3eb1bed7
+18/05/2020 10:23:43 PagSeguro.Installment[info]: Begin
+18/05/2020 10:23:43 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+18/05/2020 10:23:44 PagSeguro.Session[info]: Begin
+18/05/2020 10:23:44 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 10:23:44 PagSeguro.Session[info]: Session ID: 0bb3b78f0e584615bd46f7017b0e659c
+18/05/2020 10:23:44 PagSeguro.DirectPayment.Boleto[info]: Begin
+18/05/2020 10:23:44 PagSeguro.DirectPayment.Boleto[info]: POST: https://ws.pagseguro.uol.com.br/v2/transactions/?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 10:23:44 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":"0001","itemDescription1":"Inscri\u00e7\u00e3o Acamp unidos","itemQuantity1":1,"itemAmount1":"140.00","paymentMethod":"boleto","paymentMode":"DEFAULT","senderName":"Jo\u00e3o Comprador","senderEmail":"henriquehps1997@gmail.com","senderAreaCode":61,"senderPhone":"(**) 98530-****","senderCPF":"588.***.***-**","senderHash":"60ed3ce797f9681d8d412b49997633015b6231f52093e05cdff06b386df4afbe","shippingAddressStreet":"Av. Brig. Faria Lima","shippingAddressNumber":"1384","shippingAddressComplement":"apto. 114","shippingAddressCity":"S\u00e3o Paulo","shippingAddressState":"SP","shippingAddressDistrict":"Jardim Paulistano","shippingAddressPostalCode":"01452002","shippingAddressCountry":"BRA"}
+18/05/2020 10:23:47 PagSeguro.DirectPayment.Boleto[info]: Boleto Payment Link URL: https://pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=e4acbda76e79d4d7cf3f474bfbf2e9efc1a09a05ab92d1e69efdc3e4a5e47b87df735282048b5dea
+18/05/2020 10:29:02 PagSeguro.Installment[info]: Begin
+18/05/2020 10:29:02 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+18/05/2020 10:29:12 PagSeguro.Session[info]: Begin
+18/05/2020 10:29:12 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 10:29:19 PagSeguro.Session[info]: Session ID: c3e1e709dba146d383658f6ed3819dc5
+18/05/2020 10:29:19 PagSeguro.DirectPayment.Boleto[info]: Begin
+18/05/2020 10:29:19 PagSeguro.DirectPayment.Boleto[info]: POST: https://ws.pagseguro.uol.com.br/v2/transactions/?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
+18/05/2020 10:29:20 PagSeguro.Checkout[info]: Params: {"currency":"BRL","itemId1":"0001","itemDescription1":"Inscri\u00e7\u00e3o Acamp unidos","itemQuantity1":1,"itemAmount1":"140.00","paymentMethod":"boleto","paymentMode":"DEFAULT","senderName":"Jo\u00e3o Comprador","senderEmail":"henriquehps1997@gmail.com","senderAreaCode":61,"senderPhone":"(**) 98530-****","senderCPF":"588.***.***-**","senderHash":"60ed3ce797f9681d8d412b49997633015b6231f52093e05cdff06b386df4afbe","shippingAddressStreet":"Av. Brig. Faria Lima","shippingAddressNumber":"1384","shippingAddressComplement":"apto. 114","shippingAddressCity":"S\u00e3o Paulo","shippingAddressState":"SP","shippingAddressDistrict":"Jardim Paulistano","shippingAddressPostalCode":"01452002","shippingAddressCountry":"BRA"}
+18/05/2020 10:29:26 PagSeguro.DirectPayment.Boleto[info]: Boleto Payment Link URL: https://pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=516849a23ab31ff6191669c60d36936558438a5c0631283c770ab88dda00713ac0f68eb98f38886d

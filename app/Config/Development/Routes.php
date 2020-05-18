@@ -13,6 +13,8 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function($routes)
 
     $routes->resource('inscricao');
 
+    $routes->resource('notificacaoPagseguro');
+
     $routes->post('pessoa/resetar-senha', 'Pessoa::resetPassword');
     
     $routes->post('usuario/login', 'Usuario::authenticate');

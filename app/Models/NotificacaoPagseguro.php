@@ -2,19 +2,19 @@
 
 use CodeIgniter\Model;
 
-class Congregacao extends Model
+class NotificacaoPagseguro extends Model
 {
     protected $DBGroup = "default"; 
 
-    protected $table      = 'congregacao';
-    protected $primaryKey = 'congregacao';
+    protected $table      = 'notificacao_pagseguro';
+    protected $primaryKey = 'notificacao';
 
     protected $returnType = 'array';
     protected $useSoftDeletes = true;
 
     protected $allowedFields = [
-        'regiao', 
-        'nome_congregacao', 
+        'notificationCode', 
+        'notificationType', 
     ];
 
     protected $useTimestamps = true;
@@ -23,8 +23,8 @@ class Congregacao extends Model
     protected $deletedField  = 'deleted_at';
 
     protected $validationRules    = [
-        'regiao'            => 'required|is_natural', 
-        'nome_congregacao'  => 'required|min_length[2]', 
+        'notificationCode'  => 'required|max_length[50]', 
+        'notificationType'  => 'required|max_length[50]', 
     ];
 
     protected $validationMessages = [];

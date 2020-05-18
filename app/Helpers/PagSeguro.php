@@ -61,7 +61,6 @@ class PagSeguro extends Controller{
 
         //limite máximos de parcela do cartão de crédito para cada valor
         $parcela = $this->installmentMax(140.00, 3);
-
     }
 
     /**
@@ -81,6 +80,34 @@ class PagSeguro extends Controller{
     }
 
     /**
+     * 
+     */
+    public function verifyTransaction()
+    {
+        // $code = '144C1E68-E294-453E-A475-A3E0D847A77D';
+
+        // $response = \PagSeguro\Services\Transactions\Search\Code::search(
+        //     \PagSeguro\Configuration\Configure::getAccountCredentials(),
+        //     $code
+        // );
+        
+        $queryNotification = new \PagSeguro\Domains\Requests\DirectPreApproval\QueryNotification(null, null, 20, 'código da notificação');
+
+        $response = $queryNotification->register(
+            $this->config->getAccountCredentials() // credencias do vendedor no pagseguro
+        );
+    
+        var_dump($response);die();
+
+        // if (\PagSeguro\Helpers\Xhr::hasPost()) {
+        //     $response = \PagSeguro\Services\Transactions\Notification::check(
+        //         \PagSeguro\Configuration\Configure::getAccountCredentials()
+        //     );
+        // }
+
+    }
+
+    /**
      * gerar boleto bancario
      */
     public function generateBoleto()
@@ -97,13 +124,13 @@ class PagSeguro extends Controller{
         $this->boleto->setSender()->setName('João Comprador');
 
         //Seleciona o email do solicitante
-        $this->boleto->setSender()->setEmail('juniorfransisco1@gmail.com');
+        $this->boleto->setSender()->setEmail('henriquehps1997@gmail.com');
 
         //defina um código pra esse boleto, pra ser identificado mais rápido futuramente
         // $boleto->setReference("LIBPHP000001-boleto");
 
         //Defina um valor extra para esse boleto
-        $this->boleto->setExtraAmount(11.5);
+        // $this->boleto->setExtraAmount(11.5);
         
         //Informe o contato do solicitante
         $this->boleto->setSender()->setPhone()->withParameters(61, 985308219);

@@ -78,23 +78,31 @@ class Inscricao extends Controller
         // //Verifica se está passando algum token
         // if(!$authorization):
 
-        //     return $this->failNotFound('Error Not found');
+        //     return $this->failNotFound('Erro na autenticação');
 
         // endif;
 
-        $data = $this->request->getJSON(true); 
+        // $data = $this->request->getJSON(true); 
+
+        // if(!$data):
+
+        //     return $this->failNotFound('Erro nos dados enviados');
+
+        // endif;
 
         //inicia uma sessão no pagseguro
         $sessionPagSeguro = $this->pagSeguroConfig->openSession();
 
         //Gerar boleto
-        // $generateBoleto = $this->pagSeguroConfig->generateBoleto();
+        $generateBoleto = $this->pagSeguroConfig->generateBoleto();
         
+        // var_dump($this->pagSeguroConfig->verifyNotification());
+        var_dump($generateBoleto);
+        die();
+
         //pagamento via cartão de crédito
         $paymentCreditCard = $this->pagSeguroConfig->paymentCreditCard();
         
-        var_dump($paymentCreditCard);die();
-        die();
         // var_dump($generateBoleto->getCode(),$generateBoleto->getPaymentLink(), $generateBoleto);die();
         
         // var_dump($response, $generateBoleto->getCode(),$generateBoleto->getPaymentLink(), $generateBoleto);die();
