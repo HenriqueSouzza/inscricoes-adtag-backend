@@ -110,7 +110,7 @@ class PagSeguro extends Controller{
     /**
      * gerar boleto bancario
      */
-    public function generateBoleto()
+    public function generateBoleto($data)
     {
         $this->boleto->setMode('DEFAULT');
 

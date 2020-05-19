@@ -94,10 +94,10 @@ class Inscricao extends Controller
         $sessionPagSeguro = $this->pagSeguroConfig->openSession();
 
         //Gerar boleto
-        $generateBoleto = $this->pagSeguroConfig->generateBoleto();
+        // $generateBoleto = $this->pagSeguroConfig->generateBoleto();
         
         // var_dump($this->pagSeguroConfig->verifyNotification());
-        var_dump($generateBoleto);
+        var_dump($sessionPagSeguro);
         die();
 
         //pagamento via cartão de crédito
