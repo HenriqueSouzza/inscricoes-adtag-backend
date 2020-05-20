@@ -38,7 +38,7 @@ class Authentication extends Controller
         //Payload - Content
         $payload = [
             'iat'  => time(),
-            'exp' => time() + 3600,
+            // 'exp' => time() + 3600,
             'uid' => 1,
             'data' => [ 
                 'pessoa' => $pessoa, 

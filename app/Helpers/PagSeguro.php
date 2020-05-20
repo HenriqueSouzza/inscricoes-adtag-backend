@@ -117,43 +117,47 @@ class PagSeguro extends Controller{
         //Seleciona a moeda
         $this->boleto->setCurrency("BRL");
 
-        //Para qual produto que o boleto será emitido
-        $this->boleto->addItems()->withParameters('0001', 'Inscrição Acamp unidos', 1, 140.00);
+        foreach($data['items'] as $key => $value):
+            //Para qual produto que o boleto será emitido
+            $this->boleto->addItems()->withParameters($value['id'], $value['description'], $value['quantity'], $value['amount']);
+        endforeach;
 
         //Seleciona o nome do solicitante
-        $this->boleto->setSender()->setName('João Comprador');
-
+        $this->boleto->setSender()->setName($data['sender']['name']);
+        
         //Seleciona o email do solicitante
-        $this->boleto->setSender()->setEmail('henriquehps1997@gmail.com');
-
+        $this->boleto->setSender()->setEmail($data['sender']['email']);
+        
         //defina um código pra esse boleto, pra ser identificado mais rápido futuramente
-        // $boleto->setReference("LIBPHP000001-boleto");
-
+        $this->boleto->setReference($data['reference']);
+        
         //Defina um valor extra para esse boleto
         // $this->boleto->setExtraAmount(11.5);
         
         //Informe o contato do solicitante
-        $this->boleto->setSender()->setPhone()->withParameters(61, 985308219);
+        $this->boleto->setSender()->setPhone()->withParameters($data['sender']['phone']['areaCode'], $data['sender']['phone']['number']);
         
+        // var_dump($this->boleto);die();
+
         //Informe o cpf do solicitante, obs: cpf válido
-        $this->boleto->setSender()->setDocument()->withParameters('CPF', '58885319017');
+        $this->boleto->setSender()->setDocument()->withParameters($data['sender']['document']['type'], $data['sender']['document']['value']);
         
         //Defina o hash que deve ser solicitado no front, na lib da pagseguro
-        $this->boleto->setSender()->setHash("60ed3ce797f9681d8d412b49997633015b6231f52093e05cdff06b386df4afbe");
+        $this->boleto->setSender()->setHash($data['sender']['hash']);
         
         //Ip do solicitante da requisição
         // $this->boleto->setSender()->setIp('127.0.0.0');
 
         //Preenche o endereço do do solicitante 
         $this->boleto->setShipping()->setAddress()->withParameters(
-            'Av. Brig. Faria Lima',
-            '1384',
-            'Jardim Paulistano',
-            '01452002',
-            'São Paulo',
-            'SP',
-            'BRA',
-            'apto. 114'
+            $data['shipping']['street'],
+            $data['shipping']['number'],
+            $data['shipping']['district'],
+            $data['shipping']['postalCode'],
+            $data['shipping']['city'],
+            $data['shipping']['state'],
+            $data['shipping']['country'],
+            $data['shipping']['complement']
         );
 
         $result = $this->boleto->register($this->config->getAccountCredentials());

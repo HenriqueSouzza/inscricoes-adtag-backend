@@ -2,7 +2,7 @@
 
 use CodeIgniter\Model;
 
-class Congregacao extends Model
+class Inscricao extends Model
 {
     protected $DBGroup = "default"; 
 
@@ -13,12 +13,13 @@ class Congregacao extends Model
     protected $useSoftDeletes = true;
 
     protected $allowedFields = [
-        'inscricao', 
         'pessoa', 
         'evento', 
         'data_inscricao', 
         'forma_pagamento', 
         'data_pagamento', 
+        'link_boleto', 
+        'code_transaction', 
         'status', 
     ];
 
@@ -28,12 +29,13 @@ class Congregacao extends Model
     protected $deletedField  = 'deleted_at';
 
     protected $validationRules    = [
-        'inscricao'         => 'required|is_natural', 
         'pessoa'            => 'required|is_natural', 
         'evento'            => 'required|is_natural', 
-        'data_inscricao'    => 'required|min_length[2]', 
+        'data_inscricao'    => 'required|min_length[2]|valid_date', 
         'forma_pagamento'   => 'required|max_length[15]', 
-        'data_pagamento'    => 'required', 
+        // 'data_pagamento'    => 'valid_date', 
+        'link_boleto'       => 'max_length[250]', 
+        'code_transaction'  => 'max_length[50]', 
         'status'            => 'required|max_length[15]', 
     ];
 
