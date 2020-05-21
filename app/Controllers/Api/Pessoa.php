@@ -4,9 +4,9 @@ namespace App\Controllers\Api;
 
 use CodeIgniter\Controller;
 use CodeIgniter\API\ResponseTrait;
-use App\models\Pessoa as PessoaModel;
-use App\helpers\Authentication;
-use App\helpers\ManagerPassword;
+use App\Models\Pessoa as PessoaModel;
+use App\Helpers\Authentication;
+use App\Helpers\ManagerPassword;
 use \Firebase\JWT\JWT;
 
 class Pessoa extends Controller
