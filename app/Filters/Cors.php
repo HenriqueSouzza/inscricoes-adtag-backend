@@ -12,15 +12,12 @@ class Cors implements FilterInterface
 
     public function before(RequestInterface $request)
     {
-        /*header('Access-Control-Allow-Origin', '*');
-        header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-        header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization, Origin');*/
         $request->setHeader('Access-Control-Allow-Origin', '*');
         $request->setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
         $request->setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization, Origin');
+        var_dump($request->getMethod());
         // var_dump($request->getHeaders());
         // die();
-      
     }
 
     //--------------------------------------------------------------------

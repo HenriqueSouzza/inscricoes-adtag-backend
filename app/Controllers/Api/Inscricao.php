@@ -30,7 +30,7 @@ class Inscricao extends Controller
         $this->inscricao = new InscricaoModel;
         $this->evento = new EventoModel;
         $this->pessoa = new PessoaModel;
-
+        
         $this->authorization = new Authentication;
         $this->pagSeguroConfig = new PagSeguro('production');
     }   
