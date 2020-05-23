@@ -37,9 +37,8 @@ class ManagerPassword extends Controller
         
         if(password_verify($senhaDigitada, $senha)){
             return true;
-        }else{
-            return false;
-        }
-
+        }    
+        
+        return false;
     }
 }

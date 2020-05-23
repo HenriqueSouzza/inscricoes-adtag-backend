@@ -80,34 +80,6 @@ class PagSeguro extends Controller{
     }
 
     /**
-     * 
-     */
-    public function verifyTransaction()
-    {
-        // $code = '144C1E68-E294-453E-A475-A3E0D847A77D';
-
-        // $response = \PagSeguro\Services\Transactions\Search\Code::search(
-        //     \PagSeguro\Configuration\Configure::getAccountCredentials(),
-        //     $code
-        // );
-        
-        $queryNotification = new \PagSeguro\Domains\Requests\DirectPreApproval\QueryNotification(null, null, 20, 'código da notificação');
-
-        $response = $queryNotification->register(
-            $this->config->getAccountCredentials() // credencias do vendedor no pagseguro
-        );
-    
-        var_dump($response);die();
-
-        // if (\PagSeguro\Helpers\Xhr::hasPost()) {
-        //     $response = \PagSeguro\Services\Transactions\Notification::check(
-        //         \PagSeguro\Configuration\Configure::getAccountCredentials()
-        //     );
-        // }
-
-    }
-
-    /**
      * gerar boleto bancario
      */
     public function generateBoleto($data)
@@ -218,7 +190,7 @@ class PagSeguro extends Controller{
         $this->creditCard->setSender()->setHash('60ed3ce797f9681d8d412b49997633015b6231f52093e05cdff06b386df4afbe');
 
         //Ip do solicitante da requisição
-        $this->creditCard->setSender()->setIp('127.0.0.0');
+        // $this->creditCard->setSender()->setIp('127.0.0.0');
 
         // Informações de remessa para solicitação do pagamento
         $this->creditCard->setShipping()->setAddress()->withParameters(
@@ -248,7 +220,7 @@ class PagSeguro extends Controller{
         $this->creditCard->setToken('da3fce84f22e410b82726c70684e254d');
 
         // Defina a quantidade de parcela e o valor (could be obtained using the Installments service, that have an example here in \public\getInstallments.php)
-        $this->creditCard->setInstallment()->withParameters(1, 70);
+        $this->creditCard->setInstallment()->withParameters(2, 70);
 
         // Data de nascimento do dono do cartão de crédito
         $this->creditCard->setHolder()->setBirthdate('01/10/1979');

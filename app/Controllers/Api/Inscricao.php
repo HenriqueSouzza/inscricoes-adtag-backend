@@ -74,7 +74,7 @@ class Inscricao extends Controller
         $inscricao = $this->inscricao->find($id);
 
         if(!$inscricao):
-            return $this->failNotFound('Error Not found');
+            return $this->failNotFound('Nenhum registro encontrado');
         endif;
 
         return $this->respond($inscricao);

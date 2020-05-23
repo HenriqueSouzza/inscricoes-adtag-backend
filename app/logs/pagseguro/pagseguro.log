@@ -1927,3 +1927,11 @@
 20/05/2020 16:59:35 PagSeguro.Session[info]: Begin
 20/05/2020 16:59:35 PagSeguro.Session[info]: POST: https://ws.pagseguro.uol.com.br/v2/sessions?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903
 20/05/2020 16:59:35 PagSeguro.Session[info]: Session ID: 4c93c3d492e540e4b56a761db95cc437
+23/05/2020 20:04:02 PagSeguro.Installment[info]: Begin
+23/05/2020 20:04:02 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+23/05/2020 20:04:08 PagSeguro.Installment[info]: Begin
+23/05/2020 20:04:08 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+23/05/2020 20:04:27 PagSeguro.Installment[info]: Begin
+23/05/2020 20:04:27 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+23/05/2020 20:07:10 PagSeguro.Installment[info]: Begin
+23/05/2020 20:07:10 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
