@@ -2,26 +2,24 @@
 
 use CodeIgniter\Database\Migration;
 
-
-class Congregacao extends Migration
+class NotificacaoPagseguro extends Migration
 {
-
 	public function up()
 	{
 		$this->forge->addField([
-			'congregacao' => [
-				'type'	 	 	 => 'INT',
-				'constraint' 	 => 11,
-				'unsigned'	 	 => true,
+			'notificacao' => [
+				'type'	=> 'INT',
+				'constraint'  	 => 11,
+				'unsigned' 	 	 => true,
 				'auto_increment' => true
 			],
-			'regiao' => [
-				'type'		=> 'INT',
-				'unsigned'	=> true
-			],
-			'nome_congregacao' => [
+			'notificationCode' => [
 				'type'		 => 'VARCHAR',
-				'constraint' => 100,
+				'constraint' => 50
+			],
+			'notificationType' => [
+				'type'		 => 'VARCHAR',
+				'constraint' => 50
 			],
 			'created_at' => [
 				'type'	=> 'DATETIME',
@@ -38,15 +36,14 @@ class Congregacao extends Migration
 			],
 		]);
 
-		$this->forge->addKey('congregacao', true);
-
-		$this->forge->createTable('congregacao');
+		$this->forge->addKey('notificacao', true);
+		$this->forge->createTable('notificacao_pagseguro');
 	}
 
 	//--------------------------------------------------------------------
 
 	public function down()
 	{
-		$this->forge->dropTable('congregacao');
+		$this->forge->dropTable('notificacao_pagseguro');
 	}
 }
