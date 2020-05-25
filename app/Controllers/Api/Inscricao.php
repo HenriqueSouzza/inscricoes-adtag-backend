@@ -85,56 +85,56 @@ class Inscricao extends Controller
      */
     public function create()
     {
-        // $authorization = $this->request->getHeader('Authorization'); 
+        $authorization = $this->request->getHeader('Authorization'); 
 
-        // //Verifica se está passando algum token
-        // if(!$authorization):
-        //     return $this->failUnauthorized('Erro na autenticação');
-        // endif;
+        //Verifica se está passando algum token
+        if(!$authorization):
+            return $this->failUnauthorized('Erro na autenticação');
+        endif;
 
-        // //valida o token
-        // $validateToken = $this->authorization->validateToken($authorization->getValue());
+        //valida o token
+        $validateToken = $this->authorization->validateToken($authorization->getValue());
 
-        // //caso o token não for válido, retorna uma erro para o usuário
-        // if(!$validateToken):
-        //     return $this->failUnauthorized('Acesso não permitido para o seu usuário');
-        // endif;
+        //caso o token não for válido, retorna uma erro para o usuário
+        if(!$validateToken):
+            return $this->failUnauthorized('Acesso não permitido para o seu usuário');
+        endif;
 
-        // $data = $this->request->getJSON(true); 
+        $data = $this->request->getJSON(true); 
 
-        // if(!$data):
-        //     return $this->failNotFound('Dados enviados incorretos');
-        // endif;
+        if(!$data):
+            return $this->failNotFound('Dados enviados incorretos');
+        endif;
 
         
-        // if($data['method'] == 'BOLETO'):
-        //     // Gerar boleto
-        //     $transacao = $this->pagSeguroConfig->generateBoleto($data);
-        // endif;
+        if($data['method'] == 'BOLETO'):
+            // Gerar boleto
+            $transacao = $this->pagSeguroConfig->generateBoleto($data);
+        endif;
         
-        // $pessoa = $this->pessoa->where('cpf', $data['sender']['document']['value'])->findAll();
+        $pessoa = $this->pessoa->where('cpf', $data['sender']['document']['value'])->findAll();
         
-        // $dadosInscricao = [
-        //     'pessoa'            => $pessoa[0]['pessoa'],
-        //     'evento'            => $data['items'][0]['id'],
-        //     'data_inscricao'    => date('Y-m-d'),
-        //     'forma_pagamento'   => $data['method'],
-        //     'code_transaction'  => $transacao->getCode(),
-        //     'link_boleto'       => $transacao->getPaymentLink(),
-        //     'status'            => 'PI'
-        // ];
+        $dadosInscricao = [
+            'pessoa'            => $pessoa[0]['pessoa'],
+            'evento'            => $data['items'][0]['id'],
+            'data_inscricao'    => date('Y-m-d'),
+            'forma_pagamento'   => $data['method'],
+            'code_transaction'  => $transacao->getCode(),
+            'link_boleto'       => $transacao->getPaymentLink(),
+            'status'            => 'PI'
+        ];
 
-        // $inscricao = $this->inscricao->insert($dadosInscricao);
+        $inscricao = $this->inscricao->insert($dadosInscricao);
 
-        // if($this->inscricao->errors()): 
-        //     return $this->fail($this->inscricao->errors('Erro ao tentar salvar os dados'));
-        // endif;
+        if($this->inscricao->errors()): 
+            return $this->fail($this->inscricao->errors('Erro ao tentar salvar os dados'));
+        endif;
 
-        // if(!$inscricao):
-        //     return $this->failServerError('Erro ao tentar salvar os dados');
-        // endif;
+        if(!$inscricao):
+            return $this->failServerError('Erro ao tentar salvar os dados');
+        endif;
 
-        // return $this->respondCreated(['message' =>'Inscrição realizada']);
+        return $this->respondCreated(['message' =>'Inscrição realizada']);
     }
 
     /**

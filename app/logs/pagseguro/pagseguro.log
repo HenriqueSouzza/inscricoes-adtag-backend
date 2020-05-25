@@ -2011,3 +2011,5 @@
 25/05/2020 14:19:17 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
 25/05/2020 14:19:18 PagSeguro.Installment[info]: Begin
 25/05/2020 14:19:18 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 15:48:38 PagSeguro.Installment[info]: Begin
+25/05/2020 15:48:38 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
