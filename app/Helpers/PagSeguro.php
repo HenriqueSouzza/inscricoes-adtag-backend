@@ -7,6 +7,7 @@ use \PagSeguro\Configuration\Configure;
 use \PagSeguro\Services\Session;
 use \PagSeguro\Domains\Requests\DirectPayment\Boleto;
 use \PagSeguro\Domains\Requests\DirectPayment\CreditCard;
+use \PagSeguro\Domains\Requests\DirectPayment\OnlineDebit;
 
 class PagSeguro extends Controller{
 
@@ -30,6 +31,7 @@ class PagSeguro extends Controller{
     private $session;
     private $boleto;
     private $creditCard;
+    private $onlineDebit;
 
     /**
      * 
@@ -44,6 +46,8 @@ class PagSeguro extends Controller{
         $this->boleto = new Boleto;
 
         $this->creditCard = new CreditCard;
+
+        $this->onlineDebit = new onlineDebit;
 
         if($env == 'production'):
             $this->config->setAccountCredentials($this->email_production, $this->token_production);
@@ -237,6 +241,68 @@ class PagSeguro extends Controller{
         $result = $this->creditCard->register($this->config->getAccountCredentials());
 
         return $result;
+    }
 
+    public function paymentDebitOnline($data)
+    {
+        // Set the Payment Mode for this payment request
+        $this->onlineDebit->setMode('DEFAULT');
+
+        // Set bank for this payment request
+        $this->onlineDebit->setBankName($data['bank']['name']);
+
+        //Defina a forma de pagamento
+        $this->onlineDebit->setMode('DEFAULT');
+
+        //E-mail do remetente 
+        $this->onlineDebit->setReceiverEmail($this->email_production);
+
+        //Defina um código pra essa transacao, pra ser identificado mais rápido futuramente
+        // $this->onlineDebit->setReference("LIBPHP000001");
+
+        // Defina o tipo da moeda
+        $this->onlineDebit->setCurrency("BRL");
+
+        foreach($data['items'] as $key => $value):
+            //Para qual produto que o boleto será emitido
+            $this->onlineDebit->addItems()->withParameters($value['id'], $value['description'], $value['quantity'], $value['amount']);
+        endforeach;
+
+        //Seleciona o nome do solicitante
+        $this->onlineDebit->setSender()->setName($data['sender']['name']);
+        
+        //Seleciona o email do solicitante
+        $this->onlineDebit->setSender()->setEmail($data['sender']['email']);
+        
+        //set extra amount
+        // $this->onlineDebit->setExtraAmount(11.5);
+
+        //Informe o contato do solicitante
+        $this->onlineDebit->setSender()->setPhone()->withParameters($data['sender']['phone']['areaCode'], $data['sender']['phone']['number']);
+        
+        //Informe o cpf do solicitante, obs: cpf válido
+        $this->onlineDebit->setSender()->setDocument()->withParameters($data['sender']['document']['type'], $data['sender']['document']['value']);
+        
+        //Defina o hash que deve ser solicitado no front, na lib da pagseguro
+        $this->onlineDebit->setSender()->setHash($data['sender']['hash']);
+
+        //
+        // $this->onlineDebit->setSender()->setIp('127.0.0.0');
+
+        //Preenche o endereço do do solicitante 
+        $this->onlineDebit->setShipping()->setAddress()->withParameters(
+            $data['shipping']['street'],
+            $data['shipping']['number'],
+            $data['shipping']['district'],
+            $data['shipping']['postalCode'],
+            $data['shipping']['city'],
+            $data['shipping']['state'],
+            $data['shipping']['country'],
+            $data['shipping']['complement']
+        );
+
+        $result = $this->onlineDebit->register($this->config->getAccountCredentials());
+
+        return $result;
     }
 }   

@@ -106,12 +106,15 @@ class Inscricao extends Controller
             return $this->failNotFound('Dados enviados incorretos');
         endif;
 
-        
         if($data['method'] == 'BOLETO'):
             // Gerar boleto
             $transacao = $this->pagSeguroConfig->generateBoleto($data);
         endif;
-        
+
+        if($data['method'] == 'ONLINE_DEBIT'):
+            $transacao = $this->pagSeguroConfig->paymentDebitOnline($data);
+        endif;
+
         $pessoa = $this->pessoa->where('cpf', $data['sender']['document']['value'])->findAll();
         
         $dadosInscricao = [
