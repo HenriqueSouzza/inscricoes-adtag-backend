@@ -115,6 +115,12 @@ class Inscricao extends Controller
             $transacao = $this->pagSeguroConfig->paymentDebitOnline($data);
         endif;
 
+        // if($data['method'] == 'ONLINE_DEBIT'):
+        //     $transacao = $this->pagSeguroConfig->paymentDebitOnline($data);
+        // endif;
+
+        die();
+
         $pessoa = $this->pessoa->where('cpf', $data['sender']['document']['value'])->findAll();
         
         $dadosInscricao = [

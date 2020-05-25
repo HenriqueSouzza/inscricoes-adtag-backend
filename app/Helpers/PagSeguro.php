@@ -165,8 +165,8 @@ class PagSeguro extends Controller{
         //Defina a forma de pagamento
         $this->creditCard->setMode('DEFAULT');
 
-        //E-mail do comprador 
-        $this->creditCard->setReceiverEmail('henriquetsi10@gmail.com');
+        //E-mail do remetente 
+        $this->creditCard->setReceiverEmail($this->email_production);
 
         //Defina um código pra essa transacao, pra ser identificado mais rápido futuramente
         // $this->creditCard->setReference("LIBPHP000001");
@@ -174,69 +174,70 @@ class PagSeguro extends Controller{
         // Defina o tipo da moeda
         $this->creditCard->setCurrency("BRL");
 
-        //Adiciona o produto do pagmento
-        $this->creditCard->addItems()->withParameters('0001', 'Notebook prata', 1, 140.00);
+        foreach($data['items'] as $key => $value):
+            //Para qual produto que o boleto será emitido
+            $this->creditCard->addItems()->withParameters($value['id'], $value['description'], $value['quantity'], $value['amount']);
+        endforeach;
 
-        // Set your customer information.
-        // If you using SANDBOX you must use an email @sandbox.pagseguro.com.br
-        $this->creditCard->setSender()->setName('João Comprador');
+        //Seleciona o nome do solicitante
+        $this->creditCard->setSender()->setName($data['sender']['name']);
+    
+        //Seleciona o email do solicitante
+        $this->creditCard->setSender()->setEmail($data['sender']['email']);
 
-        //Email do comprador
-        $this->creditCard->setSender()->setEmail('email@comprador.com.br');
-
-        //Telefone do comprador
-        $this->creditCard->setSender()->setPhone()->withParameters(61, 983569485);
-
-        //cpf do comprador
-        $this->creditCard->setSender()->setDocument()->withParameters('CPF', '58885319017');
-
+        //Informe o contato do solicitante
+        $this->creditCard->setSender()->setPhone()->withParameters($data['sender']['phone']['areaCode'], $data['sender']['phone']['number']);
+    
+        //Informe o cpf do solicitante, obs: cpf válido
+        $this->creditCard->setSender()->setDocument()->withParameters($data['sender']['document']['type'], $data['sender']['document']['value']);
+        
         //Defina o hash que deve ser solicitado no front, na lib da pagseguro
-        $this->creditCard->setSender()->setHash('60ed3ce797f9681d8d412b49997633015b6231f52093e05cdff06b386df4afbe');
+        $this->creditCard->setSender()->setHash($data['sender']['hash']);
 
         //Ip do solicitante da requisição
         // $this->creditCard->setSender()->setIp('127.0.0.0');
 
         // Informações de remessa para solicitação do pagamento
         $this->creditCard->setShipping()->setAddress()->withParameters(
-            'Av. Brig. Faria Lima',
-            '1384',
-            'Jardim Paulistano',
-            '01452002',
-            'São Paulo',
-            'SP',
-            'BRA',
-            'apto. 114'
+            $data['shipping']['street'],
+            $data['shipping']['number'],
+            $data['shipping']['district'],
+            $data['shipping']['postalCode'],
+            $data['shipping']['city'],
+            $data['shipping']['state'],
+            $data['shipping']['country'],
+            $data['shipping']['complement']
         );
 
         //Informações de cobrança do cartão de crédito
         $this->creditCard->setBilling()->setAddress()->withParameters(
-            'Av. Brig. Faria Lima',
-            '1384',
-            'Jardim Paulistano',
-            '01452002',
-            'São Paulo',
-            'SP',
-            'BRA',
-            'apto. 114'
+            $data['billing']['street'],
+            $data['billing']['number'],
+            $data['billing']['district'],
+            $data['billing']['postalCode'],
+            $data['billing']['city'],
+            $data['billing']['state'],
+            $data['billing']['country'],
+            $data['billing']['complement']
         );
 
         // Token do cartão de crédito
-        $this->creditCard->setToken('da3fce84f22e410b82726c70684e254d');
+        $this->creditCard->setToken($data['creditCard']['token']);
 
         // Defina a quantidade de parcela e o valor (could be obtained using the Installments service, that have an example here in \public\getInstallments.php)
-        $this->creditCard->setInstallment()->withParameters(2, 70);
+        $this->creditCard->setInstallment()->withParameters($data['creditCard']['installment']['quantity'], $data['creditCard']['installment']['installmentAmount']);
 
         // Data de nascimento do dono do cartão de crédito
-        $this->creditCard->setHolder()->setBirthdate('01/10/1979');
+        $this->creditCard->setHolder()->setBirthdate($data['creditCard']['holder']['birthDate']);
 
         // Nome do dono do cartão de crédito, igual ao que está no cartão de crédito
-        $this->creditCard->setHolder()->setName('João Comprador');
+        $this->creditCard->setHolder()->setName($data['creditCard']['holder']['name']);
 
         // Telefone do dono do cartão de crédito
-        $this->creditCard->setHolder()->setPhone()->withParameters(61, 936524189);
+        $this->creditCard->setHolder()->setPhone()->withParameters($data['creditCard']['holder']['phone']['areaCode'], $data['creditCard']['holder']['phone']['number']);
 
         // Informar o cpf do dono do cartão de crédito
-        $this->creditCard->setHolder()->setDocument()->withParameters('CPF', '58885319017');
+        $this->creditCard->setHolder()->setDocument()->withParameters($data['creditCard']['holder']['document']['type'], $data['creditCard']['holder']['document']['value']);
 
         $result = $this->creditCard->register($this->config->getAccountCredentials());
 
