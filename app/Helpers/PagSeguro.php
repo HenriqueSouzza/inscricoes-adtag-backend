@@ -160,7 +160,7 @@ class PagSeguro extends Controller{
     /**
      * Para pagamento via cartão de crédito
      */
-    public function paymentCreditCard()
+    public function paymentCreditCard($data)
     {
         //Defina a forma de pagamento
         $this->creditCard->setMode('DEFAULT');
