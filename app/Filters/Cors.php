@@ -23,9 +23,7 @@ class Cors implements FilterInterface
     
     public function after(RequestInterface $request, ResponseInterface $response)
     {
-        if(!$request->getHeader('Authorization')){
-            return $response->setStatusCode(404, "Error not found");
-        }
+        
     }
 
 }
