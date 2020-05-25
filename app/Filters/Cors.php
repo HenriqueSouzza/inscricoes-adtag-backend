@@ -15,16 +15,17 @@ class Cors implements FilterInterface
         $request->setHeader('Access-Control-Allow-Origin', '*');
         $request->setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
         $request->setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization, Origin');
-        // var_dump($request->getMethod());
-        // var_dump($request->getHeaders());
-        // die();
+        // var_dump($request->getMethod());die();
+        // var_dump($request->getHeaders());die();
     }
-
+    
     //--------------------------------------------------------------------
-
+    
     public function after(RequestInterface $request, ResponseInterface $response)
     {
-        
+        if(!$request->getHeader('Authorization')){
+            return $response->setStatusCode(404, "Error not found");
+        }
     }
 
 }

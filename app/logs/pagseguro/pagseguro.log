@@ -1959,3 +1959,55 @@
 23/05/2020 20:23:47 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
 23/05/2020 20:28:04 PagSeguro.Installment[info]: Begin
 23/05/2020 20:28:04 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 13:32:32 PagSeguro.Installment[info]: Begin
+25/05/2020 13:32:32 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 13:33:29 PagSeguro.Installment[info]: Begin
+25/05/2020 13:33:29 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:04:09 PagSeguro.Installment[info]: Begin
+25/05/2020 14:04:09 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:04:56 PagSeguro.Installment[info]: Begin
+25/05/2020 14:04:56 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:05:01 PagSeguro.Installment[info]: Begin
+25/05/2020 14:05:01 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:08:00 PagSeguro.Installment[info]: Begin
+25/05/2020 14:08:00 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:08:08 PagSeguro.Installment[info]: Begin
+25/05/2020 14:08:08 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:08:11 PagSeguro.Installment[info]: Begin
+25/05/2020 14:08:11 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:08:24 PagSeguro.Installment[info]: Begin
+25/05/2020 14:08:24 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:08:40 PagSeguro.Installment[info]: Begin
+25/05/2020 14:08:40 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:08:57 PagSeguro.Installment[info]: Begin
+25/05/2020 14:08:57 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:09:43 PagSeguro.Installment[info]: Begin
+25/05/2020 14:09:43 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:09:57 PagSeguro.Installment[info]: Begin
+25/05/2020 14:09:57 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:10:07 PagSeguro.Installment[info]: Begin
+25/05/2020 14:10:07 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:14:57 PagSeguro.Installment[info]: Begin
+25/05/2020 14:14:57 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:15:03 PagSeguro.Installment[info]: Begin
+25/05/2020 14:15:03 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:16:30 PagSeguro.Installment[info]: Begin
+25/05/2020 14:16:30 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:16:51 PagSeguro.Installment[info]: Begin
+25/05/2020 14:16:51 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:17:03 PagSeguro.Installment[info]: Begin
+25/05/2020 14:17:03 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:17:48 PagSeguro.Installment[info]: Begin
+25/05/2020 14:17:48 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:17:55 PagSeguro.Installment[info]: Begin
+25/05/2020 14:17:55 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:18:00 PagSeguro.Installment[info]: Begin
+25/05/2020 14:18:00 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:18:08 PagSeguro.Installment[info]: Begin
+25/05/2020 14:18:08 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:19:15 PagSeguro.Installment[info]: Begin
+25/05/2020 14:19:15 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:19:17 PagSeguro.Installment[info]: Begin
+25/05/2020 14:19:17 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
+25/05/2020 14:19:18 PagSeguro.Installment[info]: Begin
+25/05/2020 14:19:18 PagSeguro.Installment[info]: GET: https://ws.pagseguro.uol.com.br/v2/installments?email=henriquetsi10%40gmail.com&token=0c2adbb5-4c88-4a8f-992b-675f351e7b008d74be174a64821a9fa0aaf9ee128362a6ad-cf6e-406e-8863-65c9c9b33903&amount=140.00&maxInstallmentNoInterest=3
