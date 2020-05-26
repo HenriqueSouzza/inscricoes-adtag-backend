@@ -64,7 +64,7 @@ class PagSeguro extends Controller{
         $this->config->setLog($this->log_active, $this->log_location);
 
         //limite máximos de parcela do cartão de crédito para cada valor
-        // $parcela = $this->installmentMax(140.00, 3);
+        $parcela = $this->installmentMax(140.00, 3);
     }
 
     /**
@@ -81,6 +81,19 @@ class PagSeguro extends Controller{
         endif;
 
         return $result;
+    }
+
+    /**
+     * 
+     */
+    public function notificationTransaction($code){
+
+        $response = \PagSeguro\Services\Transactions\Search\Code::search(
+            $this->config->getAccountCredentials(),
+            $code
+        );
+    
+        return $response;
     }
 
     /**
@@ -181,7 +194,7 @@ class PagSeguro extends Controller{
 
         //
         foreach($data['items'] as $key => $value):
-            //Para qual produto que o boleto será emitido
+            //Informa o produto que está sendo vendido
             $this->creditCard->addItems()->withParameters($value['id'], $value['description'], $value['quantity'], $value['amount']);
         endforeach;
 
@@ -236,7 +249,7 @@ class PagSeguro extends Controller{
         $this->creditCard->setToken($data['creditCard']['token']);
 
         // Defina a quantidade de parcela e o valor (could be obtained using the Installments service, that have an example here in \public\getInstallments.php)
-        $this->creditCard->setInstallment()->withParameters($data['creditCard']['installment']['quantity'], $data['creditCard']['installment']['installmentAmount']);
+        $this->creditCard->setInstallment()->withParameters($data['creditCard']['installment']['quantity'], (float) $data['creditCard']['installment']['installmentAmount'], $data['creditCard']['maxInstallmentNoInterest']);
 
         // Data de nascimento do dono do cartão de crédito
         $this->creditCard->setHolder()->setBirthdate($data['creditCard']['holder']['birthDate']);

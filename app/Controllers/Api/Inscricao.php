@@ -37,6 +37,10 @@ class Inscricao extends Controller
 
     public function index()
     {
+
+        var_dump($this->pagSeguroConfig->notificationTransaction('4FD773BC-E5D7-4541-951E-29111EA9039A'));
+        die();
+
         // $authorization = $this->request->getHeader('Authorization'); 
 
         // //Verifica se está passando algum token
