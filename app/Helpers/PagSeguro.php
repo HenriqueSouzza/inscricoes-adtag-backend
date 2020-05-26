@@ -127,17 +127,19 @@ class PagSeguro extends Controller{
         //Habilita se tem frete ou não, caso false não tem frete, caso true tem frete
         $this->boleto->setShipping()->setAddressRequired()->withParameters($data['shipping']['addressRequired']);
 
-        // Informações de endereço de entrega caso tenha frete
-        $this->boleto->setShipping()->setAddress()->withParameters(
-            $data['shipping']['street'],
-            $data['shipping']['number'],
-            $data['shipping']['district'],
-            $data['shipping']['postalCode'],
-            $data['shipping']['city'],
-            $data['shipping']['state'],
-            $data['shipping']['country'],
-            $data['shipping']['complement']
-        );
+        if($data['shipping']['addressRequired']){
+            // Informações de endereço de entrega caso tenha frete
+            $this->boleto->setShipping()->setAddress()->withParameters(
+                $data['shipping']['street'],
+                $data['shipping']['number'],
+                $data['shipping']['district'],
+                $data['shipping']['postalCode'],
+                $data['shipping']['city'],
+                $data['shipping']['state'],
+                $data['shipping']['country'],
+                $data['shipping']['complement']
+            );
+        }
 
         $result = $this->boleto->register($this->config->getAccountCredentials());
 
@@ -177,6 +179,7 @@ class PagSeguro extends Controller{
         // Defina o tipo da moeda
         $this->creditCard->setCurrency("BRL");
 
+        //
         foreach($data['items'] as $key => $value):
             //Para qual produto que o boleto será emitido
             $this->creditCard->addItems()->withParameters($value['id'], $value['description'], $value['quantity'], $value['amount']);
@@ -203,17 +206,19 @@ class PagSeguro extends Controller{
         //Habilita se tem frete ou não, caso false não tem frete, caso true tem frete
         $this->creditCard->setShipping()->setAddressRequired()->withParameters($data['shipping']['addressRequired']);
 
-        // Informações de endereço de entrega caso tenha frete
-        $this->creditCard->setShipping()->setAddress()->withParameters(
-                $data['shipping']['street'],
-                $data['shipping']['number'],
-                $data['shipping']['district'],
-                $data['shipping']['postalCode'],
-                $data['shipping']['city'],
-                $data['shipping']['state'],
-                $data['shipping']['country'],
-                $data['shipping']['complement'],
-        );
+        if($data['shipping']['addressRequired']){
+            // Informações de endereço de entrega caso tenha frete
+            $this->creditCard->setShipping()->setAddress()->withParameters(
+                    $data['shipping']['street'],
+                    $data['shipping']['number'],
+                    $data['shipping']['district'],
+                    $data['shipping']['postalCode'],
+                    $data['shipping']['city'],
+                    $data['shipping']['state'],
+                    $data['shipping']['country'],
+                    $data['shipping']['complement'],
+            );
+        }
 
         //Informações de cobrança do cartão de crédito
         $this->creditCard->setBilling()->setAddress()->withParameters(
@@ -299,17 +304,19 @@ class PagSeguro extends Controller{
         //Habilita se tem frete ou não, caso false não tem frete, caso true tem frete
         $this->onlineDebit->setShipping()->setAddressRequired()->withParameters($data['shipping']['addressRequired']);
 
-        // Informações de endereço de entrega caso tenha frete, caso não tenha o endereço será da igreja 
-        $this->onlineDebit->setShipping()->setAddress()->withParameters(
-            $data['shipping']['street'],
-            $data['shipping']['number'],
-            $data['shipping']['district'],
-            $data['shipping']['postalCode'],
-            $data['shipping']['city'],
-            $data['shipping']['state'],
-            $data['shipping']['country'],
-            $data['shipping']['complement']
-        );
+        if($data['shipping']['addressRequired']){
+            // Informações de endereço de entrega caso tenha frete, caso não tenha o endereço será da igreja 
+            $this->onlineDebit->setShipping()->setAddress()->withParameters(
+                $data['shipping']['street'],
+                $data['shipping']['number'],
+                $data['shipping']['district'],
+                $data['shipping']['postalCode'],
+                $data['shipping']['city'],
+                $data['shipping']['state'],
+                $data['shipping']['country'],
+                $data['shipping']['complement']
+            );
+        }
 
         $result = $this->onlineDebit->register($this->config->getAccountCredentials());
 

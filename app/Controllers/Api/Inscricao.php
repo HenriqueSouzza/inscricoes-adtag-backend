@@ -112,12 +112,12 @@ class Inscricao extends Controller
         endif;
 
         if($data['method'] == 'ONLINE_DEBIT'):
-            //
+            // Pagamento no cartao débito
             $transacao = $this->pagSeguroConfig->paymentDebitOnline($data);
         endif;
 
         if($data['method'] == 'CREDIT_CARD'):
-            //
+            // Pagamento no cartao de crédito
             $transacao = $this->pagSeguroConfig->paymentCreditCard($data);
         endif;
 
@@ -129,7 +129,7 @@ class Inscricao extends Controller
             'data_inscricao'    => date('Y-m-d'),
             'forma_pagamento'   => $data['method'],
             'code_transaction'  => $transacao->getCode(),
-            'link_boleto'       => $transacao->getPaymentLink(),
+            'link_boleto'       => ($data['method'] == 'CREDIT_CARD' ? null : $transacao->getPaymentLink()),
             'status'            => 'PI'
         ];
 
