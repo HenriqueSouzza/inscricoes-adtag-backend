@@ -64,7 +64,7 @@ class PagSeguro extends Controller{
         $this->config->setLog($this->log_active, $this->log_location);
 
         //limite máximos de parcela do cartão de crédito para cada valor
-        $parcela = $this->installmentMax(140.00, 3);
+        // $parcela = $this->installmentMax(140.00, 3);
     }
 
     /**
@@ -124,7 +124,10 @@ class PagSeguro extends Controller{
         //Ip do solicitante da requisição
         // $this->boleto->setSender()->setIp('127.0.0.0');
 
-        //Preenche o endereço do do solicitante 
+        //Habilita se tem frete ou não, caso false não tem frete, caso true tem frete
+        $this->boleto->setShipping()->setAddressRequired()->withParameters($data['shipping']['addressRequired']);
+
+        // Informações de endereço de entrega caso tenha frete
         $this->boleto->setShipping()->setAddress()->withParameters(
             $data['shipping']['street'],
             $data['shipping']['number'],
@@ -196,17 +199,20 @@ class PagSeguro extends Controller{
 
         //Ip do solicitante da requisição
         // $this->creditCard->setSender()->setIp('127.0.0.0');
+        
+        //Habilita se tem frete ou não, caso false não tem frete, caso true tem frete
+        $this->creditCard->setShipping()->setAddressRequired()->withParameters($data['shipping']['addressRequired']);
 
-        // Informações de remessa para solicitação do pagamento
+        // Informações de endereço de entrega caso tenha frete
         $this->creditCard->setShipping()->setAddress()->withParameters(
-            $data['shipping']['street'],
-            $data['shipping']['number'],
-            $data['shipping']['district'],
-            $data['shipping']['postalCode'],
-            $data['shipping']['city'],
-            $data['shipping']['state'],
-            $data['shipping']['country'],
-            $data['shipping']['complement']
+                $data['shipping']['street'],
+                $data['shipping']['number'],
+                $data['shipping']['district'],
+                $data['shipping']['postalCode'],
+                $data['shipping']['city'],
+                $data['shipping']['state'],
+                $data['shipping']['country'],
+                $data['shipping']['complement'],
         );
 
         //Informações de cobrança do cartão de crédito
@@ -290,7 +296,10 @@ class PagSeguro extends Controller{
         //
         // $this->onlineDebit->setSender()->setIp('127.0.0.0');
 
-        //Preenche o endereço do do solicitante 
+        //Habilita se tem frete ou não, caso false não tem frete, caso true tem frete
+        $this->onlineDebit->setShipping()->setAddressRequired()->withParameters($data['shipping']['addressRequired']);
+
+        // Informações de endereço de entrega caso tenha frete, caso não tenha o endereço será da igreja 
         $this->onlineDebit->setShipping()->setAddress()->withParameters(
             $data['shipping']['street'],
             $data['shipping']['number'],
