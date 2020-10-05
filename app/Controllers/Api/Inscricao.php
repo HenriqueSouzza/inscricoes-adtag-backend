@@ -37,22 +37,20 @@ class Inscricao extends Controller
 
     public function index()
     {
+        // var_dump($this->pagSeguroConfig->notificationTransaction('4FD773BC-E5D7-4541-951E-29111EA9039A'));
+        // die();
+        $authorization = $this->request->getHeader('Authorization'); 
 
-        var_dump($this->pagSeguroConfig->notificationTransaction('4FD773BC-E5D7-4541-951E-29111EA9039A'));
-        die();
+        //Verifica se está passando algum token
+        if(!$authorization):
 
-        // $authorization = $this->request->getHeader('Authorization'); 
+            return $this->failUnauthorized('Acesso não permitido para o seu usuário');
 
-        // //Verifica se está passando algum token
-        // if(!$authorization):
+        endif;
 
-        //     return $this->failUnauthorized('Acesso não permitido para o seu usuário');
-
-        // endif;
-
-        // $inscricao = $this->inscricao->findAll();
+        $inscricao = $this->inscricao->findAll();
         
-        // return $this->respond($inscricao);
+        return $this->respond($inscricao);
     }
 
     /**
