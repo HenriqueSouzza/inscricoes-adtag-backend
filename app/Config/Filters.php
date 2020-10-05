@@ -18,12 +18,12 @@ class Filters extends BaseConfig
 		'before' => [
 			//'honeypot'
 			// 'csrf' => ['except => api/*'],
-			'cors'
+			// 'cors'
 		],
 		'after'  => [
 			'toolbar',
 			//'honeypot'
-			'cors',
+			// 'cors',
 		],
 	];
 
