@@ -25,7 +25,7 @@ class PagSeguro extends Controller{
 
     private $charset = "UTF-8"; // charset default utf8
     private $log_active = true; //false para não habilitar log e true para habilitar log
-    private $log_location = "C:\Apache24\htdocs\unidos-adtag-backend\app\logs\pagseguro\pagseguro.log"; // caminho do log
+    private $log_location = "C:\Apache24\htdocs\inscricoes-adtag-backend\app\logs\pagseguro\pagseguro.log"; // caminho do log
 
     private $config;
     private $session;
